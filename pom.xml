@@ -12,6 +12,7 @@
     <url>http://maven.apache.org</url>
     <modules>
         <module>WalkthroughAPI</module>
+        <module>CompactAPI</module>
     </modules>
 
     <properties>

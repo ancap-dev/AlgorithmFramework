@@ -17,4 +17,5 @@ public class RegionWalkthroughOperator<NODE> implements WalkthroughOperator<NODE
         if (!this.regionPredicate.test(target)) return StepResult.DENY;
         return StepResult.Allow.VOID;
     }
+    
 }
