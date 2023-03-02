@@ -23,8 +23,7 @@ public class Walkthrough<NODE, CUSTOM_DATA> {
         toNodePaths.put(this.base, new ImmutableWithList<>(List.of(this.base)));
         dataTargetingData.put(this.base, this.walkthroughOperator.initialData(this.base));
 
-        collection:
-        while (!stack.isEmpty()) {
+        collection: while (!stack.isEmpty()) {
             NODE nodeUpperLevel = stack.pop();
             Set<NODE> neighbors = this.nodeNodeMethodApplier.neighbors(nodeUpperLevel);
             for (NODE nodeLowerLevel : neighbors) {

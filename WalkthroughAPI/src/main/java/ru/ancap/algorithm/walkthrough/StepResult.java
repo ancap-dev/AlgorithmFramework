@@ -9,9 +9,9 @@ public sealed interface StepResult<CUSTOM_DATA> permits StepResult.Allow, StepRe
         
     }
 
-    Deny DENY = new Deny();
-    record Deny() implements StepResult<Void> {}
+    static <CUSTOM_DATA> Deny<CUSTOM_DATA> DENY() {return new Deny<>();}
+    record Deny<CUSTOM_DATA>() implements StepResult<CUSTOM_DATA> {}
 
-    EndWalkthrough END_WALKTHROUGH = new EndWalkthrough();
-    record EndWalkthrough() implements StepResult<Void> {}
+    static <CUSTOM_DATA> EndWalkthrough<CUSTOM_DATA> END_WALKTHROUGH() {return new EndWalkthrough<>();}
+    record EndWalkthrough<CUSTOM_DATA>() implements StepResult<CUSTOM_DATA> {}
 }
