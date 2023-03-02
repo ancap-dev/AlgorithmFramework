@@ -18,7 +18,7 @@ public class PathfindingWalkthroughOperator<NODE> implements WalkthroughOperator
     public StepResult<Void> step(NODE target, WalkthroughData<NODE, Void> previous) {
         if (this.target.equals(target)) {
             this.pathConsumer.accept(previous.path().with(target));
-            return StepResult.END_WALKTHROUGH;
+            return StepResult.END_WALKTHROUGH();
         }
         return StepResult.Allow.VOID;
     }
