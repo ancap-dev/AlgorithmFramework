@@ -14,7 +14,7 @@ public class RegionWalkthroughOperator<NODE> implements WalkthroughOperator<NODE
 
     @Override
     public StepResult<Void> step(NODE target, WalkthroughData<NODE, Void> previous) {
-        if (!this.regionPredicate.test(target)) return StepResult.DENY;
+        if (!this.regionPredicate.test(target)) return StepResult.DENY();
         return StepResult.Allow.VOID;
     }
     
