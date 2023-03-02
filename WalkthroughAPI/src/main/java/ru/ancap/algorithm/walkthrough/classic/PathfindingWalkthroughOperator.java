@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @AllArgsConstructor
-public class PathfindingWalkthrough<NODE> implements WalkthroughOperator<NODE, Void> {
+public class PathfindingWalkthroughOperator<NODE> implements WalkthroughOperator<NODE, Void> {
     
     private final NODE target;
     private final Consumer<List<NODE>> pathConsumer;

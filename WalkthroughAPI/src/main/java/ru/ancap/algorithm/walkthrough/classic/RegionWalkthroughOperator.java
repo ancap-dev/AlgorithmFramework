@@ -8,7 +8,7 @@ import ru.ancap.algorithm.walkthrough.WalkthroughOperator;
 import java.util.function.Predicate;
 
 @AllArgsConstructor
-public class RegionWalkthrough<NODE> implements WalkthroughOperator<NODE, Void> {
+public class RegionWalkthroughOperator<NODE> implements WalkthroughOperator<NODE, Void> {
     
     private final Predicate<NODE> regionPredicate;
 
