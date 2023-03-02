@@ -1,9 +1,9 @@
-package ru.ancap.hexagon.walkthrough.classic;
+package ru.ancap.algorithm.walkthrough.classic;
 
 import lombok.AllArgsConstructor;
-import ru.ancap.hexagon.walkthrough.StepResult;
-import ru.ancap.hexagon.walkthrough.WalkthroughData;
-import ru.ancap.hexagon.walkthrough.WalkthroughOperator;
+import ru.ancap.algorithm.walkthrough.StepResult;
+import ru.ancap.algorithm.walkthrough.WalkthroughData;
+import ru.ancap.algorithm.walkthrough.WalkthroughOperator;
 
 import java.util.List;
 import java.util.function.Consumer;

@@ -1,4 +1,4 @@
-package ru.ancap.hexagon.walkthrough;
+package ru.ancap.algorithm.walkthrough;
 
 import lombok.AllArgsConstructor;
 import ru.ancap.commons.withlist.ImmutableWithList;
@@ -18,18 +18,19 @@ public class Walkthrough<NODE, CUSTOM_DATA> {
         Stack<NODE> stack = new Stack<>();
         stack.push(this.base);
         Set<NODE> visited = new HashSet<>();
-        Map<NODE, WithList<NODE>> toHexPaths = new HashMap<>();
+        Map<NODE, WithList<NODE>> toNodePaths = new HashMap<>();
         Map<NODE, CUSTOM_DATA> dataTargetingData = new HashMap<>();
-        toHexPaths.put(this.base, new ImmutableWithList<>(List.of(this.base)));
+        toNodePaths.put(this.base, new ImmutableWithList<>(List.of(this.base)));
         dataTargetingData.put(this.base, this.walkthroughOperator.initialData(this.base));
 
+        collection:
         while (!stack.isEmpty()) {
             NODE nodeUpperLevel = stack.pop();
             Set<NODE> neighbors = this.nodeNodeMethodApplier.neighbors(nodeUpperLevel);
             for (NODE nodeLowerLevel : neighbors) {
                 if (!visited.contains(nodeLowerLevel)) {
                     
-                    WithList<NODE> pathToLowerLevel = toHexPaths.get(nodeUpperLevel).with(nodeLowerLevel);
+                    WithList<NODE> pathToLowerLevel = toNodePaths.get(nodeUpperLevel).with(nodeLowerLevel);
                     
                     StepResult<CUSTOM_DATA> stepResult = this.walkthroughOperator.step(nodeLowerLevel, new WalkthroughData<>(
                         nodeLowerLevel,
@@ -41,11 +42,11 @@ public class Walkthrough<NODE, CUSTOM_DATA> {
                         case StepResult.Allow<CUSTOM_DATA> allow -> {
                             stack.push(nodeLowerLevel);
                             visited.add(nodeLowerLevel);
-                            toHexPaths.put(nodeLowerLevel, pathToLowerLevel);
+                            toNodePaths.put(nodeLowerLevel, pathToLowerLevel);
                             dataTargetingData.put(nodeLowerLevel, allow.customData());
                         }
                         case StepResult.Deny ignoredInstance -> {}
-                        case StepResult.EndWalkthrough ignoredInstance -> {return null;}
+                        case StepResult.EndWalkthrough ignoredInstance -> {break collection;}
                     }
                     
                 }

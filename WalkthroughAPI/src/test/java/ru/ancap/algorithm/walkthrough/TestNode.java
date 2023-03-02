@@ -1,2 +1,7 @@
-package ru.ancap.algorithm.walkthrough;public class TestNode {
+package ru.ancap.algorithm.walkthrough;
+
+public class TestNode {
+    
+    
+    
 }

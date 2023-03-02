@@ -1,4 +1,4 @@
-package ru.ancap.hexagon.walkthrough;
+package ru.ancap.algorithm.walkthrough;
 
 public sealed interface StepResult<CUSTOM_DATA> permits StepResult.Allow, StepResult.Deny, StepResult.EndWalkthrough {
 

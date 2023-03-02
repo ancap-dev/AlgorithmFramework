@@ -1,18 +1,22 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# base
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+.idea/
+**/target/
+**/build/
+**/.idea/
+**/test-output/
+
+# extensions
+
+*.log
+*.class
+*.tmp
 *.iml
 *.ipr
+*.iws
 
-### Eclipse ###
+# specific
+
 .apt_generated
 .classpath
 .factorypath
@@ -20,19 +24,11 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
 .DS_Store
+Desktop.ini
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+**/.vscode/

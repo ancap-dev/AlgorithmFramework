@@ -1,4 +1,4 @@
-package ru.ancap.hexagon.walkthrough;
+package ru.ancap.algorithm.walkthrough;
 
 public interface WalkthroughOperator<NODE, CUSTOM_DATA> {
     

@@ -1,4 +1,4 @@
-package ru.ancap.hexagon.walkthrough;
+package ru.ancap.algorithm.walkthrough;
 
 import lombok.With;
 import ru.ancap.commons.withlist.WithList;

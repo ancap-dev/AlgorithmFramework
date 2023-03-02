@@ -1,4 +1,4 @@
-package ru.ancap.hexagon.walkthrough;
+package ru.ancap.algorithm.walkthrough;
 
 import java.util.Set;
 
