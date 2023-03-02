@@ -22,8 +22,9 @@ public class PIRWalkthroughOperator<NODE> extends RegionWalkthroughOperator<NODE
     }
 
     private static Polygon jtsPolygonOfAwt(GeometryFactory geometryFactory, java.awt.Polygon awtRegion) {
-        Coordinate[] coordinates = new Coordinate[awtRegion.npoints];
+        Coordinate[] coordinates = new Coordinate[awtRegion.npoints + 1];
         for (int i = 0; i < awtRegion.npoints; i++) coordinates[i] = new Coordinate(awtRegion.xpoints[i], awtRegion.ypoints[i]);
+        coordinates[coordinates.length-1] = new Coordinate(awtRegion.xpoints[0], awtRegion.ypoints[0]);
         return geometryFactory.createPolygon(coordinates);
     }
 
