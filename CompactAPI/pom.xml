@@ -8,6 +8,8 @@
         <artifactId>AlgorithmFramework</artifactId>
         <version>1.0</version>
     </parent>
+    
+    <version>1.0.1</version>
 
     <artifactId>CompactAPI</artifactId>
 
