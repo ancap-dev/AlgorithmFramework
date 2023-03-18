@@ -14,10 +14,12 @@
         <module>WalkthroughAPI</module>
         <module>CompactAPI</module>
         <module>StringAPI</module>
+        <module>AxisAPI</module>
     </modules>
 
     <properties>
         <java.version>19</java.version>
+        <compiler.arguments>--enable-preview</compiler.arguments>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -36,7 +38,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgs>--enable-preview</compilerArgs>
+                    <compilerArgs>${compiler.arguments}</compilerArgs>
                 </configuration>
             </plugin>
 
