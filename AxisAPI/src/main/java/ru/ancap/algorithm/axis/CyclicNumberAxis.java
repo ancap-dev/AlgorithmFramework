@@ -22,11 +22,11 @@ public class CyclicNumberAxis implements NumberAxis {
     }
 
     public double offset(double base, double steps) {
-        if (base+1 > this.period) throw new IllegalArgumentException("Base can not be outside the borders!");
+        double baseMod = base % this.period;
 
         double offset = steps % this.period;
 
-        double newBase = base + offset;
+        double newBase = baseMod + offset;
         if (newBase >= this.period) newBase -= this.period;
         else if (newBase < 0) newBase += this.period;
 

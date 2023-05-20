@@ -22,8 +22,8 @@ public class NumberAxisTest {
         assertEquals(3, new CyclicNumberAxis( 2, 8) .offset( 4, -3));
         assertEquals(0, new CyclicNumberAxis(-5, 5) .offset( 5,  0));
 
-        assertThrows(IllegalArgumentException.class, () -> new CyclicNumberAxis(12).offset(12, 3));
-        assertThrows(IllegalArgumentException.class, () -> new CyclicNumberAxis(1) .offset(5,  10));
+        assertEquals(3, new CyclicNumberAxis( 12)   .offset(12, 3));
+        assertEquals(0, new CyclicNumberAxis( 1)    .offset(5,  10));
     }
 
 }
