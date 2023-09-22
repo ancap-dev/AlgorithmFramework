@@ -3,6 +3,7 @@ package ru.ancap.algorithm.axis;
 public class CyclicNumberAxis implements NumberAxis {
 
     public static CyclicNumberAxis HEXAGONAL = new CyclicNumberAxis(6);
+    public static CyclicNumberAxis CIRCLE    = new CyclicNumberAxis(Math.TAU);
 
     private final double boundOffset;
     private final double period;
@@ -16,11 +17,12 @@ public class CyclicNumberAxis implements NumberAxis {
     }
 
     private CyclicNumberAxis(double boundOffset, double period, Object hack_to_add_other_method_with_the_same_signature) {
-        if (period < 0) throw new IllegalArgumentException("Period can not be smaller than 0");
+        if (period <= 0) throw new IllegalArgumentException("Period can not be smaller or equal to 0");
         this.boundOffset = boundOffset;
         this.period = period;
     }
 
+    @Override
     public double offset(double base, double steps) {
         double baseMod = base % this.period;
 
