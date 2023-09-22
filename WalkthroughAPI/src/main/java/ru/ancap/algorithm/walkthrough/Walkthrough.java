@@ -1,8 +1,8 @@
 package ru.ancap.algorithm.walkthrough;
 
 import lombok.AllArgsConstructor;
-import ru.ancap.commons.withlist.ImmutableWithList;
-import ru.ancap.commons.withlist.WithList;
+import ru.ancap.commons.list.with.ImmutableWithList;
+import ru.ancap.commons.list.with.WithList;
 
 import java.util.*;
 
@@ -44,8 +44,8 @@ public class Walkthrough<NODE, CUSTOM_DATA> {
                             toNodePaths.put(nodeLowerLevel, pathToLowerLevel);
                             dataTargetingData.put(nodeLowerLevel, allow.customData());
                         }
-                        case StepResult.Deny ignoredInstance -> {}
-                        case StepResult.EndWalkthrough ignoredInstance -> {break collection;}
+                        case StepResult.Deny<CUSTOM_DATA> ignoredInstance -> {}
+                        case StepResult.EndWalkthrough<CUSTOM_DATA> ignoredInstance -> {break collection;}
                     }
                     
                 }
