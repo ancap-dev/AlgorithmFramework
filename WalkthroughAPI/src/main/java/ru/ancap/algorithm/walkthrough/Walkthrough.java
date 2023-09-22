@@ -1,27 +1,22 @@
 package ru.ancap.algorithm.walkthrough;
 
 import lombok.AllArgsConstructor;
-import ru.ancap.commons.list.with.ImmutableWithList;
-import ru.ancap.commons.list.with.WithList;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
 
 @AllArgsConstructor
-public class Walkthrough<NODE, CUSTOM_DATA> {
+public class Walkthrough<NODE> {
 
     private final NODE base;
-    private final WalkthroughOperator<NODE, CUSTOM_DATA> walkthroughOperator;
+    private final WalkthroughOperator<NODE> walkthroughOperator;
     private final NodeMethodApplier<NODE> nodeNodeMethodApplier;
     
     public WalkthroughResult<NODE> walkthrough() {
 
-        Stack<NODE> stack = new Stack<>();
-        stack.push(this.base);
-        Set<NODE> visited = new HashSet<>();
-        Map<NODE, WithList<NODE>> toNodePaths = new HashMap<>();
-        Map<NODE, CUSTOM_DATA> dataTargetingData = new HashMap<>();
-        toNodePaths.put(this.base, new ImmutableWithList<>(List.of(this.base)));
-        dataTargetingData.put(this.base, this.walkthroughOperator.initialData(this.base));
+        Stack<NODE> stack = new Stack<>(); stack.push(this.base);
+        Set<NODE> visited = new HashSet<>(); visited.add(this.base);
 
         collection: while (!stack.isEmpty()) {
             NODE nodeUpperLevel = stack.pop();
@@ -29,23 +24,15 @@ public class Walkthrough<NODE, CUSTOM_DATA> {
             for (NODE nodeLowerLevel : neighbors) {
                 if (!visited.contains(nodeLowerLevel)) {
                     
-                    WithList<NODE> pathToLowerLevel = toNodePaths.get(nodeUpperLevel).with(nodeLowerLevel);
-                    
-                    StepResult<CUSTOM_DATA> stepResult = this.walkthroughOperator.step(nodeLowerLevel, new WalkthroughData<>(
-                        nodeLowerLevel,
-                        pathToLowerLevel,
-                        dataTargetingData.get(nodeLowerLevel)
-                    ));
+                    StepResult stepResult = this.walkthroughOperator.step(nodeLowerLevel, new WalkthroughData<>(nodeLowerLevel));
                     
                     switch (stepResult) {
-                        case StepResult.Allow<CUSTOM_DATA> allow -> {
+                        case ALLOW-> {
                             stack.push(nodeLowerLevel);
                             visited.add(nodeLowerLevel);
-                            toNodePaths.put(nodeLowerLevel, pathToLowerLevel);
-                            dataTargetingData.put(nodeLowerLevel, allow.customData());
                         }
-                        case StepResult.Deny<CUSTOM_DATA> ignoredInstance -> {}
-                        case StepResult.EndWalkthrough<CUSTOM_DATA> ignoredInstance -> {break collection;}
+                        case DENY -> {}
+                        case END_WALKTHROUGH -> {break collection;}
                     }
                     
                 }
