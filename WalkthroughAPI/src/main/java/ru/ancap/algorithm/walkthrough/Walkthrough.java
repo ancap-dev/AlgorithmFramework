@@ -27,7 +27,7 @@ public class Walkthrough<NODE> {
                     StepResult stepResult = this.walkthroughOperator.step(nodeLowerLevel, new WalkthroughData<>(nodeLowerLevel));
                     
                     switch (stepResult) {
-                        case ALLOW-> {
+                        case ALLOW -> {
                             stack.push(nodeLowerLevel);
                             visited.add(nodeLowerLevel);
                         }
