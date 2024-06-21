@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
 
     <name>AlgorithmFramework</name>
-    <url>http://maven.apache.org</url>
     <modules>
         <module>WalkthroughAPI</module>
         <module>CompactAPI</module>
