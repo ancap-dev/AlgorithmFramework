@@ -2,9 +2,9 @@ package ru.ancap.algorithm.compact.bench;
 
 import lombok.RequiredArgsConstructor;
 
-import ru.ancap.algorighm.compact.BitwiseCompactor;
-import ru.ancap.algorighm.compact.Compactor;
-import ru.ancap.algorighm.compact.Morton64Compactor;
+import ru.ancap.algorithm.compact.BitwiseCompactor;
+import ru.ancap.algorithm.compact.Compactor;
+import ru.ancap.algorithm.compact.Morton64Compactor;
 import ru.ancap.commons.debug.HandTest;
 
 import java.util.Random;

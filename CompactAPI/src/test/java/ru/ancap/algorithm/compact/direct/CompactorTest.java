@@ -1,9 +1,9 @@
 package ru.ancap.algorithm.compact.direct;
 
 import org.junit.jupiter.api.Test;
-import ru.ancap.algorighm.compact.BitwiseCompactor;
-import ru.ancap.algorighm.compact.Compactor;
-import ru.ancap.algorighm.compact.Morton64Compactor;
+import ru.ancap.algorithm.compact.BitwiseCompactor;
+import ru.ancap.algorithm.compact.Compactor;
+import ru.ancap.algorithm.compact.Morton64Compactor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

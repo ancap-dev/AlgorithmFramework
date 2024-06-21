@@ -1,4 +1,4 @@
-package ru.ancap.algorighm.compact;
+package ru.ancap.algorithm.compact;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

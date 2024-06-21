@@ -1,4 +1,4 @@
-package ru.ancap.algorighm.compact;
+package ru.ancap.algorithm.compact;
 
 /**
  * Definitely supports packing range from Integer.MIN_VALUE + 1 to Integer.MAX_VALUE by specification. 
